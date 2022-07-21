@@ -15,9 +15,6 @@ class DigitClassifier(private val context: Context) {
     private val modelPath: String = "mnist.tflite"
     private lateinit var interpreter: Interpreter
 
-    private val INPUT_SIZE = 28
-    private val PIXEL_SIZE = 1
-    private val OUTPUT_CLASSES_COUNT = 10
 
     /**
      * Loads the SavedModel
@@ -92,5 +89,10 @@ class DigitClassifier(private val context: Context) {
         return "Prediction Result: %d\nConfidence: %.2f%%".format(maxIndex, result[maxIndex] * 100)
     }
 
+    companion object {
+        const val INPUT_SIZE = 28
+        const val PIXEL_SIZE = 1
+        const val OUTPUT_CLASSES_COUNT = 10
+    }
 
 }
